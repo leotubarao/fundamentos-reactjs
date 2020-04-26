@@ -22,13 +22,34 @@ export const Container = styled.div<ContainerProps>`
         text-decoration: none;
         font-size: 16px;
         transition: opacity 0.2s;
+        position: relative;
+
+        &:after {
+          content: '';
+          background-color: #ff872c;
+          position: absolute;
+          height: 2px;
+          width: 0%;
+          bottom: -10px;
+          left: 50%;
+          transform: translateX(-50%);
+          transition: all 0.2s ease-in-out;
+        }
+
+        &.active:after {
+          width: 100%;
+        }
 
         & + a {
           margin-left: 32px;
         }
 
         &:hover {
-          opacity: 0.6;
+          /* opacity: 0.6; */
+
+          &:after {
+            width: 100%;
+          }
         }
       }
     }
